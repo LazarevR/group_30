@@ -1,5 +1,5 @@
 ID
 Step: 
 Expected result: 
-Status: 
+Status: (Pass/Fail)
 Commentary:
