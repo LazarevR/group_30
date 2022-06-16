@@ -23,7 +23,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://162.55.220.72:5005/get_method?age=31&name=Ruslan",
+					"raw": "http://162.55.220.72:5005/get_method?age={{age}}&name=Ruslan",
 					"protocol": "http",
 					"host": [
 						"162",
@@ -38,7 +38,7 @@
 					"query": [
 						{
 							"key": "age",
-							"value": "31"
+							"value": "{{age}}"
 						},
 						{
 							"key": "name",
@@ -57,9 +57,7 @@
 					"script": {
 						"exec": [
 							"var jsonData = pm.response.json();\r",
-							"var salary_1_5 = jsonData.family.u_salary_1_5_year\r",
-							"\r",
-							"\r",
+							"var salary_1_5 = jsonData.family.u_salary_1_5_year;\r",
 							"pm.environment.set(\"salary\", salary_1_5);"
 						],
 						"type": "text/javascript"
@@ -74,7 +72,7 @@
 					"formdata": [
 						{
 							"key": "age",
-							"value": "31",
+							"value": "{{age}}",
 							"type": "text"
 						},
 						{
@@ -84,7 +82,7 @@
 						},
 						{
 							"key": "salary",
-							"value": "12000",
+							"value": "{{salary}}",
 							"type": "text"
 						}
 					]
@@ -123,7 +121,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://162.55.220.72:5005/object_info_1?name=Ruslan&age=31&weight=85",
+					"raw": "http://162.55.220.72:5005/object_info_1?name=Ruslan&age={{age}}&weight=85",
 					"protocol": "http",
 					"host": [
 						"162",
@@ -142,7 +140,7 @@
 						},
 						{
 							"key": "age",
-							"value": "31"
+							"value": "{{age}}"
 						},
 						{
 							"key": "weight",
@@ -160,7 +158,10 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							""
+							"var jsonData = pm.response.json();\r",
+							"// var salary_5_year = jsonData.person.u_salary_5_years;\r",
+							"var salary_5_year = jsonData.person.u_salary_5_years;\r",
+							"pm.environment.set(\"salary\", salary_5_year);"
 						],
 						"type": "text/javascript"
 					}
@@ -170,7 +171,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://162.55.220.72:5005/object_info_2?name=Ruslan&age=31&salary=12000",
+					"raw": "http://162.55.220.72:5005/object_info_2?name=Ruslan&age={{age}}&salary={{salary}}",
 					"protocol": "http",
 					"host": [
 						"162",
@@ -189,11 +190,11 @@
 						},
 						{
 							"key": "age",
-							"value": "31"
+							"value": "{{age}}"
 						},
 						{
 							"key": "salary",
-							"value": "12000"
+							"value": "{{salary}}"
 						}
 					]
 				}
@@ -217,7 +218,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://162.55.220.72:5005/object_info_3?name=Ruslan&age=31&salary=12000",
+					"raw": "http://162.55.220.72:5005/object_info_3?name=Ruslan&age={{age}}&salary={{salary}}",
 					"protocol": "http",
 					"host": [
 						"162",
@@ -236,11 +237,11 @@
 						},
 						{
 							"key": "age",
-							"value": "31"
+							"value": "{{age}}"
 						},
 						{
 							"key": "salary",
-							"value": "12000"
+							"value": "{{salary}}"
 						}
 					]
 				}
@@ -264,7 +265,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://162.55.220.72:5005/object_info_4?name=Ruslan&age=31&salary=12000",
+					"raw": "http://162.55.220.72:5005/object_info_4?name=Ruslan&age={{age}}&salary={{salary}}",
 					"protocol": "http",
 					"host": [
 						"162",
@@ -283,11 +284,11 @@
 						},
 						{
 							"key": "age",
-							"value": "31"
+							"value": "{{age}}"
 						},
 						{
 							"key": "salary",
-							"value": "12000"
+							"value": "{{salary}}"
 						}
 					]
 				}
@@ -304,12 +305,12 @@
 					"formdata": [
 						{
 							"key": "age",
-							"value": "31",
+							"value": "{{age}}",
 							"type": "text"
 						},
 						{
 							"key": "salary",
-							"value": "12000",
+							"value": "{{salary}}",
 							"type": "text"
 						},
 						{
